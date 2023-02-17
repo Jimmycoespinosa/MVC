@@ -1,0 +1,105 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 13-02-2023 a las 12:46:55
+-- Versión del servidor: 8.0.32-0ubuntu0.20.04.2
+-- Versión de PHP: 7.4.3-4ubuntu2.17
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `primerproyecto`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `administrador`
+--
+
+CREATE TABLE IF NOT EXISTS `administrador` (
+  `codigo` varchar(10) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `apellido` varchar(20) NOT NULL,
+  `correo` varchar(20) NOT NULL,
+  `foto` varchar(50) NOT NULL DEFAULT 'fotos/defecto.jpg',
+  `contra` varchar(32) NOT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+
+--
+-- Volcado de datos para la tabla `administrador`
+--
+
+INSERT IGNORE INTO `administrador` (`codigo`, `nombre`, `apellido`, `correo`, `foto`, `contra`) VALUES
+('100', 'Homero', 'Simpson', '10', 'fotos/defecto.jpg', 'f899139df5e1059396431415e770c6dd'),
+('200', '20', '20', '20', 'fotos/defecto.jpg', '3644a684f98ea8fe223c713b77189a77'),
+('300', '30', '30', '30', 'fotos/defecto.jpg', '94f6d7e04a4d452035300f18b984988c');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `catalogo`
+--
+
+CREATE TABLE IF NOT EXISTS `catalogo` (
+  `id_producto` int NOT NULL AUTO_INCREMENT,
+  `producto` text NOT NULL,
+  `precio` double NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_producto`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Volcado de datos para la tabla `catalogo`
+--
+
+INSERT IGNORE INTO `catalogo` (`id_producto`, `producto`, `precio`) VALUES
+(4, 'Papas', 100),
+(5, 'Arroz', 200),
+(6, 'Carne', 300),
+(7, 'Yuca', 150);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `codigo` varchar(10) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `apellido` varchar(20) NOT NULL,
+  `correo` varchar(20) NOT NULL,
+  `foto` varchar(50) NOT NULL DEFAULT 'fotos/defecto.jpg',
+  `contra` varchar(32) NOT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT IGNORE INTO `usuario` (`codigo`, `nombre`, `apellido`, `correo`, `foto`, `contra`) VALUES
+('10', 'Benito', 'Camelas', '10', 'fotos/defecto.jpg', 'd3d9446802a44259755d38e6d163e820'),
+('20', '20', '20', '20', 'fotos/defecto.jpg', '98f13708210194c475687be6106a3b84'),
+('30', '30', '30', '30', 'fotos/defecto.jpg', '34173cb38f07f89ddbebc2ac9128303f'),
+('40', '40', '40', '40', 'fotos/defecto.jpg', 'd645920e395fedad7bbbed0eca3fe2e0'),
+('60', '60', '60', '60', 'fotos/60_Invierno.jpg', '072b030ba126b2f4b2374f342be9ed44'),
+('70', '70', '70', '70', 'fotos/defecto.jpg', '7cbbc409ec990f19c78c75bd1e06f215'),
+('80', '80', '80', '80', 'fotos/80_Colinas_azules.jpg', 'f033ab37c30201f73f142449d037028d'),
+('90', '90', '90', '90', 'fotos/defecto.jpg', '8613985ec49eb8f757ae6439e879bb2a');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
